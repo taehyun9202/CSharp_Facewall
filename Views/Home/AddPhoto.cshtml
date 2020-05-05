@@ -1,0 +1,20 @@
+@model Item
+<h3>Add Photo</h3>
+<form asp-action="Upload" method="post">
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <input asp-for="ItemName" class="form-control" placeholder="Photo Name">
+            <span asp-validation-for="ItemName" style="color: red; font-size: 12px;"></span>
+        </div>
+        <div class="form-group col-sm-12">
+            <input asp-for="Image" class="form-control" placeholder="Photo Name">
+            <span asp-validation-for="Image" style="color: red; font-size: 12px;"></span>
+        </div>
+        <div class="form-group col-sm-12">
+            <input asp-for="Description" class="form-control" placeholder="Photo Name">
+            <span asp-validation-for="Description" style="color: red; font-size: 12px;"></span>
+        </div>
+        <div class="form-group col-sm-12">
+            <input type="submit" style="float: right;" value="Create" class="btn btn-primary">
+        </div>
+</form>

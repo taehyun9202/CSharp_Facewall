@@ -1,0 +1,10 @@
+@model List<Item>
+<div>
+    @foreach (Item i in Model)
+    {
+        <p>@i.ItemName</p>
+        <p>@i.Image</p>
+        <p>@i.Description</p>
+        <p>@i.CreatedAt</p>
+    }
+</div>

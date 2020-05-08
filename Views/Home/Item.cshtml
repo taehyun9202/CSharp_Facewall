@@ -1,0 +1,7 @@
+@model Item
+<div class="jumbotron">
+    <h1><a href="/user/@ViewBag.getUser.UserId">@ViewBag.getUser.FirstName @ViewBag.getUser.LastName</a></h1>
+    <a href="/dashboard" style="display: block;">Home</a>
+    <a href="/logout" style="display: block;">Logout</a>
+</div>
+<a href="/item/@ViewBag.getOne.ItemId/delete">delete</a>

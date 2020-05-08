@@ -1,9 +1,44 @@
+@model User
 <div class="jumbotron">
-    <h1><a href="/user/@ViewBag.getUSer.UserId">@ViewBag.getUser.FirstName @ViewBag.getUser.LastName</a></h1>
+    <h1><a href="/user/@ViewBag.getOne.UserId">@ViewBag.getOne.FirstName @ViewBag.getOne.LastName</a></h1>
+    @if(@ViewBag.getUser == @ViewBag.getOne){
+        <a href="/user/@ViewBag.getOne.UserId/friends"style="display:block;">Freinds(number)</a>
+        <a href="/user/@ViewBag.getOne.UserId/edit"style="display:block;">Edit Profile</a>
+    }
+    else{
+        <form asp-action="AddFriend" method="post">
+            <input type="hidden" asp-for="UserId" class="form-control" value="@ViewBag.getOne.UserId">
+            <input type="submit" value="Add Friend" class="btn btn-primary">
+        </form>
+    }
     <a href="/dashboard" style="display: block;">Home</a>
     <a href="/logout" style="display: block;">Logout</a>
 </div>
-<div class="form-group col-sm-4">
-    <partial name="AddPhoto.cshtml"></partial>
-    <partial name="Photos.cshtml"></partial>
+@if(@ViewBag.getUser == @ViewBag.getOne){
+<div>
+    <div>
+        <div>
+            <div class="col col-sm-4">
+                <partial name="Photos.cshtml"></partial>
+            </div>
+        </div>
+    </div>
 </div>
+<div class="col col-sm-8" style=" margin-top:-299px;float:right;">
+        <partial name="UserMessage.cshtml"></partial>
+</div>
+}
+else
+{
+<div>
+    <div>
+        <div class="col col-sm-4">
+            <partial name="Photos.cshtml"></partial>
+        </div>
+    </div>
+</div>
+<div class="col col-sm-8" style=" margin-top:-120px;float:right;">
+        <partial name="UserMessage.cshtml"></partial>
+</div>
+}
+

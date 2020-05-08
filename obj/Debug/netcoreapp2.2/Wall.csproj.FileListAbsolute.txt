@@ -33,5 +33,9 @@ C:\Users\TylerN\Coding\Wall\obj\Debug\netcoreapp2.2\Razor\Views\Home\Registratio
 C:\Users\TylerN\Coding\Wall\obj\Debug\netcoreapp2.2\Razor\Views\Home\Message.g.cshtml.cs
 C:\Users\TylerN\Coding\Wall\obj\Debug\netcoreapp2.2\Razor\Views\Home\Dashboard.g.cshtml.cs
 C:\Users\TylerN\Coding\Wall\obj\Debug\netcoreapp2.2\Razor\Views\Home\User.g.cshtml.cs
-C:\Users\TylerN\Coding\Wall\obj\Debug\netcoreapp2.2\Razor\Views\Home\AddPhoto.g.cshtml.cs
+C:\Users\TylerN\Coding\Wall\obj\Debug\netcoreapp2.2\Razor\Views\Home\Comment.g.cshtml.cs
+C:\Users\TylerN\Coding\Wall\obj\Debug\netcoreapp2.2\Razor\Views\Home\Item.g.cshtml.cs
+C:\Users\TylerN\Coding\Wall\obj\Debug\netcoreapp2.2\Razor\Views\Home\UserMessage.g.cshtml.cs
 C:\Users\TylerN\Coding\Wall\obj\Debug\netcoreapp2.2\Razor\Views\Home\Photos.g.cshtml.cs
+C:\Users\TylerN\Coding\Wall\obj\Debug\netcoreapp2.2\Razor\Views\Home\Edit.g.cshtml.cs
+C:\Users\TylerN\Coding\Wall\obj\Debug\netcoreapp2.2\Razor\Views\Home\Friend.g.cshtml.cs

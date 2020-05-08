@@ -15,7 +15,8 @@ namespace Wall.Models
         public int UserId { get;set; }
         public Message Message { get;set; }
         public int MessageId { get;set; }
-
+        public int Like { get;set; }
+        public int ToId { get;set; }
         public DateTime CreatedAt {get;set;} = DateTime.Now;
         public DateTime UpdatedAt {get;set;} = DateTime.Now;
 

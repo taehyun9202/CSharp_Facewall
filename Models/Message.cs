@@ -12,8 +12,9 @@ namespace Wall.Models
         public string Content { get;set; }
         public User Creator { get;set; }
         public int UserId { get;set; }
+        public int Like { get;set; }
+        public int ToId { get;set; }
         public List<Comment> Reply { get;set; }
-
         public DateTime CreatedAt {get;set;} = DateTime.Now;
         public DateTime UpdatedAt {get;set;} = DateTime.Now;
 

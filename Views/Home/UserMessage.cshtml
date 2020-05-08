@@ -1,0 +1,21 @@
+@model Message
+<form asp-action="Create" method="post">
+    <div class="row">
+        <h3 style="margin-left: 15px;">Leave Message to @ViewBag.getOne.FirstName</h3>
+        <div class="form-group col-sm-10">
+            <input asp-for="Content" class="form-control" placeholder="What's on your mind, @ViewBag.getUser.FirstName?">
+            <span asp-validation-for="Content" style="color: red; font-size: 12px;"></span>
+            <input type="hidden" asp-for="ToId" class="form-control" value="@ViewBag.getOne.UserId">
+        </div>
+        <div>
+            <input type="submit" value="Create" class="btn btn-primary">
+        </div>
+</form>
+@foreach (var m in @ViewBag.allMessages){
+    <div class="col col-sm-12" style="border: 2px black solid; margin-botton: 10px;">
+        <p><a href="/user/@m.Creator.UserId">@m.Creator.FirstName @m.Creator.LastName</a> commented at @m.CreatedAt</p>
+        <p>@m.Content</p>
+        <a href="" class="">Reply</a>
+        @* <partial name="Comment.cshtml"></partial> AJAX *@
+    </div>
+}

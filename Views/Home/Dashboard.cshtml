@@ -1,15 +1,28 @@
-@model List<Message>
 <div class="row">
     <div class="col col-sm-12">
-        <partial name="Message.cshtml"></partial>
+        <partial name="Message.cshtml" model="new Message(){}"></partial>
     </div>
 </div>
-@* <div class="row">
-    <div class="col col-sm-12">
-        @foreach (var m in Model)
-        {
-            <p>@m.Creator commented at @m.CreatedAt</p>
-            <p>@m.Content</p>
+<div class="row" style="margin-left: 15px;">
+    <h1>Messages</h1>
+    @foreach (var m in @ViewBag.allMessages)
+    {
+        if(m.Creator.UserId == m.ToId){
+            <div class="col col-sm-12" style="border: 2px black solid; margin-botton: 10px;">
+                <p><a href="/user/@m.Creator.UserId">@m.Creator.FirstName @m.Creator.LastName</a> commented at @m.CreatedAt</p>
+                <p>@m.Content</p>
+                <a href="" class="">Reply</a>
+                @* <partial name="Comment.cshtml"></partial> AJAX *@
+            </div>
         }
-    </div>
-</div> *@
+        else{
+            <div class="col col-sm-12" style="border: 2px black solid; margin-botton: 10px;">
+                <p><a href="/user/@m.Creator.UserId">@m.Creator.FirstName @m.Creator.LastName</a> commented to 
+                <a href="/user/@ViewBag.allUsers[@m.ToId-1].UserId">@ViewBag.allUsers[@m.ToId-1].FirstName</a> at @m.CreatedAt</p>
+                <p>@m.Content</p>
+                <a href="" class="">Reply</a>
+                @* <partial name="Comment.cshtml"></partial> AJAX *@
+            </div>
+        }
+    }   
+</div>

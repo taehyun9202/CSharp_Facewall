@@ -2966,6 +2966,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Home\\Friend.cshtml",
+      "TargetPath": "Views\\Home\\Friend.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Home\\Edit.cshtml",
+      "TargetPath": "Views\\Home\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
@@ -2973,6 +2983,11 @@
     {
       "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Home\\Item.cshtml",
+      "TargetPath": "Views\\Home\\Item.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2998,6 +3013,11 @@
     {
       "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Home\\UserMessage.cshtml",
+      "TargetPath": "Views\\Home\\UserMessage.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3031,8 +3051,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Home\\AddPhoto.cshtml",
-      "TargetPath": "Views\\Home\\AddPhoto.cshtml",
+      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Home\\Comment.cshtml",
+      "TargetPath": "Views\\Home\\Comment.cshtml",
       "FileKind": "mvc"
     }
   ],

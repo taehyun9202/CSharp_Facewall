@@ -1,10 +1,189 @@
-@model List<Item>
-<div>
-    @foreach (Item i in Model)
+<style>
+    * {
+  box-sizing: border-box;
+}
+
+.row > .column {
+  padding: 0 8px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 70%;
+  height: 70%;
+  max-width: 600px;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+</style>
+
+@* add photo *@
+@if(@ViewBag.getUser == @ViewBag.getOne){
+    @model Item
+    <h3>Add Photo</h3>
+    <form asp-action="Upload" method="post">
+        <div class="row">
+            <div class="form-group col-sm-12">
+                <input asp-for="ItemName" class="form-control" placeholder="Photo Name">
+                <span asp-validation-for="ItemName" style="color: red; font-size: 12px;"></span>
+            </div>
+            <div class="form-group col-sm-12">
+                <input asp-for="Image" class="form-control" placeholder="Photo Name">
+                <span asp-validation-for="Image" style="color: red; font-size: 12px;"></span>
+            </div>
+            <div class="form-group col-sm-12">
+                <input asp-for="Description" class="form-control" placeholder="Photo Name">
+                <span asp-validation-for="Description" style="color: red; font-size: 12px;"></span>
+            </div>
+            <div class="form-group col-sm-12">
+                <input type="submit" style="float: right;" value="Create" class="btn btn-primary">
+            </div>
+    </form>
+}
+
+<h3>Photos</h3>
+<div class="row">
+@foreach (var i in @ViewBag.allItems)
+{
+    if(@i.Image == null)
     {
-        <p>@i.ItemName</p>
-        <p>@i.Image</p>
-        <p>@i.Description</p>
-        <p>@i.CreatedAt</p>
     }
+    else
+    {
+        <div class="column">
+            <img src="@i.Image" class="hover-shadow cursor" onclick="openModal();currentSlide(@i.ItemId)" style="border: 1px solid black; width: 100%;">
+        </div>
+    }
+}
 </div>
+<div id="myModal" class="modal">
+    <span class="close cursor" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+        @foreach (var i in @ViewBag.allItems)
+        {
+            if(@i.Image == null)
+            {
+            }
+            else
+            {
+                <div class="mySlides">
+                    <img src="@i.Image" style="width:100%">
+                </div>
+            }
+        }
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+
+<script>
+    function openModal() {
+    document.getElementById("myModal").style.display = "block";
+    }
+
+    function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+    }
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+    showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+    showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demo");
+    var captionText = document.getElementById("caption");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    captionText.innerHTML = dots[slideIndex-1].alt;
+    }
+</script>

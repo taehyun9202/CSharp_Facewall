@@ -1,0 +1,10 @@
+@model Comment
+<form asp-action="Reply" method="post">
+    <div class="row">
+        <div class="form-group col-sm-10">
+            <input asp-for="Content" class="form-control" placeholder="What's on your mind, @ViewBag.User.FirstName?">
+        </div>
+        <div>
+            <input type="submit" value="Reply" class="btn btn-primary">
+        </div>
+</form>

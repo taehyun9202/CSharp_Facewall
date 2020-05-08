@@ -31,7 +31,11 @@ namespace Wall.Migrations
 
                     b.Property<int?>("ItemId");
 
+                    b.Property<int>("Like");
+
                     b.Property<int>("MessageId");
+
+                    b.Property<int>("ToId");
 
                     b.Property<DateTime>("UpdatedAt");
 
@@ -63,6 +67,10 @@ namespace Wall.Migrations
                     b.Property<string>("ItemName")
                         .IsRequired();
 
+                    b.Property<int>("Like");
+
+                    b.Property<int>("ToId");
+
                     b.Property<DateTime>("UpdatedAt");
 
                     b.Property<int>("UserId");
@@ -83,6 +91,10 @@ namespace Wall.Migrations
                         .IsRequired();
 
                     b.Property<DateTime>("CreatedAt");
+
+                    b.Property<int>("Like");
+
+                    b.Property<int>("ToId");
 
                     b.Property<DateTime>("UpdatedAt");
 
@@ -110,8 +122,7 @@ namespace Wall.Migrations
                     b.Property<string>("Email")
                         .IsRequired();
 
-                    b.Property<string>("FirstName")
-                        .IsRequired();
+                    b.Property<string>("FirstName");
 
                     b.Property<string>("LastName")
                         .IsRequired();

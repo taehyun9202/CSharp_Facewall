@@ -1,7 +1,9 @@
 @model Message
 <div class="jumbotron">
     <h1>Home</h1>
-    <p><a href="/user/@ViewBag.USer.UserId">Welcome @ViewBag.User.FirstName @ViewBag.User.LastName</a></p>
+    <p>@ViewBag.User.UserId</p>
+    <p>@ViewBag.User.ToId</p>
+    <p><a href="/user/@ViewBag.User.UserId">Welcome @ViewBag.User.FirstName @ViewBag.User.LastName</a></p>
     <a href="/logout" class="">Logout</a>
 </div>
 <h1>Wall</h1>
@@ -11,6 +13,7 @@
         <div class="form-group col-sm-11">
             <input asp-for="Content" class="form-control" placeholder="What's on your mind, @ViewBag.User.FirstName?">
             <span asp-validation-for="Content" style="color: red; font-size: 12px;"></span>
+            <input type="hidden" asp-for="ToId" class="form-control" value="@ViewBag.User.UserId">
         </div>
         <div>
             <input type="submit" value="Create" class="btn btn-primary">

@@ -88,6 +88,11 @@ namespace Wall.Controllers
             int? ID = HttpContext.Session.GetInt32("userinSession");
             User userInDB = _context.Users.FirstOrDefault(u=>u.UserId==ID);
             List<Message> userMessage = _context.Messages.Where(m => m.UserId == ID).ToList();
+            ViewBag.allMessages = _context.Messages.Include(m => m.Creator)
+                                                   .ThenInclude(m => m.Reply)
+                                                   .OrderByDescending(m => m.CreatedAt)
+                                                   .ToList();
+            ViewBag.allUsers = _context.Users.ToList();
             if(userInDB == null)
             {
                 return RedirectToAction("Logout");
@@ -103,6 +108,11 @@ namespace Wall.Controllers
         {
             int? ID = HttpContext.Session.GetInt32("userinSession");
             ViewBag.getUser = _context.Users.FirstOrDefault(u=>u.UserId==ID);
+            User userInDB = _context.Users.FirstOrDefault(u=>u.UserId==ID);
+            if(userInDB == null)
+            {
+                return RedirectToAction("Logout");
+            }
             if(ModelState.IsValid)
             {
                 newMessage.UserId = (int)ID; 
@@ -115,6 +125,7 @@ namespace Wall.Controllers
                 
                 return View("/dashboard");
             }
+            
         }
         [HttpGet("/user/{userID}")]
         public IActionResult UserInfo(int userID)
@@ -122,6 +133,17 @@ namespace Wall.Controllers
             int? ID = HttpContext.Session.GetInt32("userinSession");
             ViewBag.getUser = _context.Users.FirstOrDefault(u=>u.UserId==ID);
             ViewBag.getOne = _context.Users.FirstOrDefault(u => u.UserId == userID);
+            ViewBag.allItems = _context.Items.Where(i => i.Uploader.UserId == userID)
+                                             .ToList();
+            ViewBag.allMessages = _context.Messages.Where(m => m.ToId == userID)
+                                                   .OrderByDescending(m => m.CreatedAt)
+                                                   .ToList();
+            ViewBag.allUsers = _context.Users.ToList();
+            User userInDB = _context.Users.FirstOrDefault(u=>u.UserId==ID);
+            if(userInDB == null)
+            {
+                return RedirectToAction("Logout");
+            }
             return View("User");
         }
 
@@ -131,6 +153,11 @@ namespace Wall.Controllers
             int? ID = HttpContext.Session.GetInt32("userinSession");
             ViewBag.getUser = _context.Users.FirstOrDefault(u=>u.UserId==ID);
             ViewBag.getOne = _context.Users.FirstOrDefault(u => u.UserId == userID);
+            User userInDB = _context.Users.FirstOrDefault(u=>u.UserId==ID);
+            if(userInDB == null)
+            {
+                return RedirectToAction("Logout");
+            }
             if(ModelState.IsValid)
             {
                 newItem.UserId = (int)ID; 
@@ -148,20 +175,126 @@ namespace Wall.Controllers
             int? ID = HttpContext.Session.GetInt32("userinSession");
             ViewBag.getUser = _context.Users.FirstOrDefault(u=>u.UserId==ID);
             ViewBag.getOne = _context.Users.FirstOrDefault(u => u.UserId == userID);
-            List<Item> allItems = _context.Items.Where(i => i.UserId == userID)
-                                                .ToList();
-            return RedirectToAction("UserInfo", allItems);
+            ViewBag.allItems = _context.Items.Where(i => i.Uploader.UserId == userID)
+                                             .ToList();
+            User userInDB = _context.Users.FirstOrDefault(u=>u.UserId==ID);
+            if(userInDB == null)
+            {
+                return RedirectToAction("Logout");
+            }
+            return View("Photos");
         }
 
 
+        [HttpGet("/item/{itemID}")]
+        public IActionResult ItemInfo(int itemID){
+            int? ID = HttpContext.Session.GetInt32("userinSession");
+            ViewBag.getUser = _context.Users.FirstOrDefault(u=>u.UserId==ID);
+            ViewBag.getOne = _context.Items.FirstOrDefault(i => i.ItemId == itemID);
+            User userInDB = _context.Users.FirstOrDefault(u=>u.UserId==ID);
+            if(userInDB == null)
+            {
+                return RedirectToAction("Logout");
+            }
+            return View("Item");
+        }
+        [HttpGet("/user/{userID}/messages")]
+        public IActionResult MessageList(int userID){
+            int? ID = HttpContext.Session.GetInt32("userinSession");
+            ViewBag.getUser = _context.Users.FirstOrDefault(u=>u.UserId==ID);
+            ViewBag.getOne = _context.Users.FirstOrDefault(i => i.UserId == userID);
+            ViewBag.allMessages = _context.Messages.Where(m => m.ToId == userID)
+                                                   .OrderByDescending(m => m.CreatedAt)
+                                                   .ToList();
+            User userInDB = _context.Users.FirstOrDefault(u=>u.UserId==ID);
+            if(userInDB == null)
+            {
+                return RedirectToAction("Logout");
+            }
+            return Redirect($"/user/{userID}");
+        }
+
+
+        [HttpGet("/item/{itemID}/delete")]
+        public IActionResult DeleteItem(int itemID, int userID){
+            int? ID = HttpContext.Session.GetInt32("userinSession");
+            ViewBag.getUser = _context.Users.FirstOrDefault(u=>u.UserId==ID);
+            Item delete = _context.Items.FirstOrDefault(i => i.ItemId == itemID);
+            _context.Items.Remove(delete);
+            _context.SaveChanges();
+            User userInDB = _context.Users.FirstOrDefault(u=>u.UserId==ID);
+            if(userInDB == null)
+            {
+                return RedirectToAction("Logout");
+            }
+            return Redirect($"/user/{userID}");
+        }
+
+        [HttpGet("user/{userID}/friends")]
+        public IActionResult Friend(int userID){
+            int? ID = HttpContext.Session.GetInt32("userinSession");
+            ViewBag.getUser = _context.Users.FirstOrDefault(u=>u.UserId==userID);
+            ViewBag.getOne = _context.Users.FirstOrDefault(u => u.UserId == userID);
+            User userInDB = _context.Users.FirstOrDefault(u=>u.UserId==ID);
+            if(userInDB == null)
+            {
+                return RedirectToAction("Logout");
+            }
+            return View("Friend");
+        }
+        // [HttpGet("addfriends")]
+        // public IActionResult AddFriend(){
+        //     int? ID = HttpContext.Session.GetInt32("userinSession");
+        //     ViewBag.getUser = _context.Users.FirstOrDefault(u=>u.UserId==ID);
+        //     User userInDB = _context.Users.FirstOrDefault(u=>u.UserId==ID);
+        //     if(userInDB == null)
+        //     {
+        //         return RedirectToAction("Logout");
+        //     }
+        //     if(ModelState.IsValid)
+        //     {
+        //         newMessage.UserId = (int)ID; 
+        //         _context.Messages.Add(newMessage);
+        //         _context.SaveChanges();
+        //         return Redirect("/dashboard");
+        //     }
+        //     else
+        //     {
+                
+        //         return View("/dashboard");
+        //     }
+        // }
 
 
 
+        [HttpGet("user/{userID}/edit")]
+        public IActionResult Edit(int userID){
+            int? ID = HttpContext.Session.GetInt32("userinSession");
+            ViewBag.getUser = _context.Users.FirstOrDefault(u=>u.UserId==userID);
+            User userInDB = _context.Users.FirstOrDefault(u=>u.UserId==ID);
+            if(userInDB == null)
+            {
+                return RedirectToAction("Logout");
+            }
+            return View("Edit");
+        }
 
-
-
-
-
+        [HttpPost("update")]
+        public IActionResult Update(){
+            int? ID = HttpContext.Session.GetInt32("userinSession");
+            User userInDB = _context.Users.FirstOrDefault(u=>u.UserId==ID);
+            if(ModelState.IsValid)
+            {
+                PasswordHasher<User> Hasher = new PasswordHasher<User>();
+                userInDB.Password = Hasher.HashPassword(userInDB, userInDB.Password);
+                _context.SaveChanges();
+                HttpContext.Session.SetInt32("userinSession", userInDB.UserId);
+                return Redirect($"/user/{userInDB.UserId}");
+            }
+            else{
+                return Redirect($"/user/{userInDB.UserId}/edit");
+            }
+        }
 
         [HttpGet("logout")]
         public IActionResult Logout()

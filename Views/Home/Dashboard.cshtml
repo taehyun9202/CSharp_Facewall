@@ -1,3 +1,4 @@
+@model Comment
 <div class="row">
     <div class="col col-sm-12">
         <partial name="Message.cshtml" model="new Message(){}"></partial>
@@ -9,10 +10,31 @@
     {
         if(m.Creator.UserId == m.ToId){
             <div class="col col-sm-12" style="border: 2px black solid; margin-botton: 10px;">
-                <p><a href="/user/@m.Creator.UserId">@m.Creator.FirstName @m.Creator.LastName</a> commented at @m.CreatedAt</p>
+                <p style="font-weight: bolder;"><a href="/user/@m.Creator.UserId">@m.Creator.FirstName @m.Creator.LastName</a> commented at @m.CreatedAt</p>
                 <p>@m.Content</p>
-                <a href="" class="">Reply</a>
-                @* <partial name="Comment.cshtml"></partial> AJAX *@
+                @* @if(@m.Like is false){
+                        <p><img type="submit" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/237/white-heart_1f90d.png" style="width: 30px;"> @m.Number</p>
+                }
+                else{
+                    <p><img type="submit" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/237/heavy-black-heart_2764.png" style="width: 30px;"> @m.Number</p>
+                } *@
+                <div>
+                    <form asp-action="Reply" method="post">
+                        <div class="form-group col-sm-12">
+                            <input asp-for="Content" class="form-control" placeholder="What's on your mind, @ViewBag.getUser.FirstName?">
+                            <input type="hidden" asp-for="MessageId" class="form-control" value="@m.MessageId">
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    @foreach (var c in @ViewBag.allComments)
+                    {
+                        @if(c.MessageId == m.MessageId){
+                            <small style="font-weight: bolder;"><a href="/user/@m.Creator.UserId">@c.Creator.FirstName</a> Replied at @c.CreatedAt</small>
+                            <p>@c.Content</p>
+                        }
+                    }
+                </div>
             </div>
         }
         else{
@@ -20,8 +42,24 @@
                 <p><a href="/user/@m.Creator.UserId">@m.Creator.FirstName @m.Creator.LastName</a> commented to 
                 <a href="/user/@ViewBag.allUsers[@m.ToId-1].UserId">@ViewBag.allUsers[@m.ToId-1].FirstName</a> at @m.CreatedAt</p>
                 <p>@m.Content</p>
-                <a href="" class="">Reply</a>
-                @* <partial name="Comment.cshtml"></partial> AJAX *@
+                <p>@m.Like</p>
+                <div>
+                    <form asp-action="Reply" method="post">
+                        <div class="form-group col-sm-12">
+                            <input asp-for="Content" class="form-control" placeholder="What's on your mind, @ViewBag.getUser.FirstName?">
+                            <input type="hidden" asp-for="ToId" class="form-control" value="@m.MessageId">
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    @foreach (var c in @ViewBag.allComments)
+                    {
+                        @if(c.MessageId == m.MessageId){
+                            <small style="font-weight: bolder;"><a href="/user/@m.Creator.UserId">@c.Creator.FirstName</a> Replied at @c.CreatedAt</small>
+                            <p>@c.Content</p>
+                        }
+                    }
+                </div>
             </div>
         }
     }   

@@ -9,7 +9,7 @@ using Wall.Models;
 namespace Wall.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20200508021234_initial")]
+    [Migration("20200509210740_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,8 +32,6 @@ namespace Wall.Migrations
                     b.Property<string>("Image");
 
                     b.Property<int?>("ItemId");
-
-                    b.Property<int>("Like");
 
                     b.Property<int>("MessageId");
 
@@ -69,8 +67,6 @@ namespace Wall.Migrations
                     b.Property<string>("ItemName")
                         .IsRequired();
 
-                    b.Property<int>("Like");
-
                     b.Property<int>("ToId");
 
                     b.Property<DateTime>("UpdatedAt");
@@ -93,8 +89,6 @@ namespace Wall.Migrations
                         .IsRequired();
 
                     b.Property<DateTime>("CreatedAt");
-
-                    b.Property<int>("Like");
 
                     b.Property<int>("ToId");
 

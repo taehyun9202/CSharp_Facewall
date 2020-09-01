@@ -15,7 +15,6 @@ namespace Wall.Models
         public string Description { get;set; }
         public User Uploader { get;set; }
         public int UserId { get;set; }
-        public int Like { get;set; }
         public int ToId { get;set; }
         public List<Comment> Reply { get;set; }
 

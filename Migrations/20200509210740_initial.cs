@@ -45,7 +45,6 @@ namespace Wall.Migrations
                     Image = table.Column<string>(nullable: false),
                     Description = table.Column<string>(nullable: true),
                     UserId = table.Column<int>(nullable: false),
-                    Like = table.Column<int>(nullable: false),
                     ToId = table.Column<int>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     UpdatedAt = table.Column<DateTime>(nullable: false)
@@ -69,7 +68,6 @@ namespace Wall.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Content = table.Column<string>(nullable: false),
                     UserId = table.Column<int>(nullable: false),
-                    Like = table.Column<int>(nullable: false),
                     ToId = table.Column<int>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     UpdatedAt = table.Column<DateTime>(nullable: false)
@@ -95,7 +93,6 @@ namespace Wall.Migrations
                     Image = table.Column<string>(nullable: true),
                     UserId = table.Column<int>(nullable: false),
                     MessageId = table.Column<int>(nullable: false),
-                    Like = table.Column<int>(nullable: false),
                     ToId = table.Column<int>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     UpdatedAt = table.Column<DateTime>(nullable: false),

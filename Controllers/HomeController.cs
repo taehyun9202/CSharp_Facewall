@@ -92,6 +92,8 @@ namespace Wall.Controllers
                                                    .ThenInclude(m => m.Reply)
                                                    .OrderByDescending(m => m.CreatedAt)
                                                    .ToList();
+            ViewBag.allComments = _context.Comments.OrderByDescending(c => c.CreatedAt)
+                                                   .ToList();
             ViewBag.allUsers = _context.Users.ToList();
             if(userInDB == null)
             {
@@ -99,7 +101,7 @@ namespace Wall.Controllers
             }
             else
             {
-                ViewBag.User = userInDB;
+                ViewBag.getUser = userInDB;
                 return View("Dashboard");
             }
         }
@@ -125,7 +127,30 @@ namespace Wall.Controllers
                 
                 return View("/dashboard");
             }
-            
+        }
+        [HttpPost("comment")]
+        public IActionResult Reply(Comment newComment)
+        {
+            int? ID = HttpContext.Session.GetInt32("userinSession");
+            ViewBag.getUser = _context.Users.FirstOrDefault(u=>u.UserId==ID);
+            User userInDB = _context.Users.FirstOrDefault(u=>u.UserId==ID);
+            if(userInDB == null)
+            {
+                return RedirectToAction("Logout");
+            }
+            else{
+                if(ModelState.IsValid)
+                {
+                    newComment.UserId = (int)ID; 
+                    _context.Comments.Add(newComment);
+                    _context.SaveChanges();
+                    return Redirect("/dashboard");
+                }
+                else
+                {
+                    return View("/dashboard");
+                }
+            }
         }
         [HttpGet("/user/{userID}")]
         public IActionResult UserInfo(int userID)
@@ -136,7 +161,10 @@ namespace Wall.Controllers
             ViewBag.allItems = _context.Items.Where(i => i.Uploader.UserId == userID)
                                              .ToList();
             ViewBag.allMessages = _context.Messages.Where(m => m.ToId == userID)
+                                                   .Include(m => m.Reply)
                                                    .OrderByDescending(m => m.CreatedAt)
+                                                   .ToList();
+            ViewBag.allComments = _context.Comments.OrderByDescending(c => c.CreatedAt)
                                                    .ToList();
             ViewBag.allUsers = _context.Users.ToList();
             User userInDB = _context.Users.FirstOrDefault(u=>u.UserId==ID);
@@ -295,6 +323,12 @@ namespace Wall.Controllers
                 return Redirect($"/user/{userInDB.UserId}/edit");
             }
         }
+
+        // [HttpPost("like")]
+        // public IActionResult Like()
+        // {
+
+        // }
 
         [HttpGet("logout")]
         public IActionResult Logout()

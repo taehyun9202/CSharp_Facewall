@@ -12155,11 +12155,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\TylerN\\Coding\\Wall\\Wall.csproj",
+      "projectUniqueName": "C:\\Users\\TylerN\\Coding\\C#\\Wall\\Wall.csproj",
       "projectName": "Wall",
-      "projectPath": "C:\\Users\\TylerN\\Coding\\Wall\\Wall.csproj",
+      "projectPath": "C:\\Users\\TylerN\\Coding\\C#\\Wall\\Wall.csproj",
       "packagesPath": "C:\\Users\\TylerN\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\TylerN\\Coding\\Wall\\obj\\",
+      "outputPath": "C:\\Users\\TylerN\\Coding\\C#\\Wall\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

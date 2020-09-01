@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Wall.csproj",
+  "FilePath": "c:\\Users\\TylerN\\Coding\\C#\\Wall\\Wall.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-2.1",
     "LanguageVersion": "2.1",
@@ -2961,98 +2961,98 @@
   "RootNamespace": "Wall",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Home\\Friend.cshtml",
+      "FilePath": "c:\\Users\\TylerN\\Coding\\C#\\Wall\\Views\\Home\\Friend.cshtml",
       "TargetPath": "Views\\Home\\Friend.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Home\\Edit.cshtml",
-      "TargetPath": "Views\\Home\\Edit.cshtml",
+      "FilePath": "c:\\Users\\TylerN\\Coding\\C#\\Wall\\Views\\Home\\Comment.cshtml",
+      "TargetPath": "Views\\Home\\Comment.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Home\\Item.cshtml",
-      "TargetPath": "Views\\Home\\Item.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Home\\Message.cshtml",
-      "TargetPath": "Views\\Home\\Message.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Home\\Photos.cshtml",
-      "TargetPath": "Views\\Home\\Photos.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Home\\UserMessage.cshtml",
-      "TargetPath": "Views\\Home\\UserMessage.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Home\\Dashboard.cshtml",
-      "TargetPath": "Views\\Home\\Dashboard.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Home\\User.cshtml",
-      "TargetPath": "Views\\Home\\User.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Home\\Login.cshtml",
-      "TargetPath": "Views\\Home\\Login.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FilePath": "c:\\Users\\TylerN\\Coding\\C#\\Wall\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Home\\Registration.cshtml",
-      "TargetPath": "Views\\Home\\Registration.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Shared\\_CookieConsentPartial.cshtml",
+      "FilePath": "c:\\Users\\TylerN\\Coding\\C#\\Wall\\Views\\Shared\\_CookieConsentPartial.cshtml",
       "TargetPath": "Views\\Shared\\_CookieConsentPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\TylerN\\Coding\\Wall\\Views\\Home\\Comment.cshtml",
-      "TargetPath": "Views\\Home\\Comment.cshtml",
+      "FilePath": "c:\\Users\\TylerN\\Coding\\C#\\Wall\\Views\\Home\\User.cshtml",
+      "TargetPath": "Views\\Home\\User.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\TylerN\\Coding\\C#\\Wall\\Views\\Home\\Registration.cshtml",
+      "TargetPath": "Views\\Home\\Registration.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\TylerN\\Coding\\C#\\Wall\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\TylerN\\Coding\\C#\\Wall\\Views\\Home\\Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\TylerN\\Coding\\C#\\Wall\\Views\\Home\\Photos.cshtml",
+      "TargetPath": "Views\\Home\\Photos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\TylerN\\Coding\\C#\\Wall\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\TylerN\\Coding\\C#\\Wall\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\TylerN\\Coding\\C#\\Wall\\Views\\Home\\Item.cshtml",
+      "TargetPath": "Views\\Home\\Item.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\TylerN\\Coding\\C#\\Wall\\Views\\Home\\Message.cshtml",
+      "TargetPath": "Views\\Home\\Message.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\TylerN\\Coding\\C#\\Wall\\Views\\Home\\Dashboard.cshtml",
+      "TargetPath": "Views\\Home\\Dashboard.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\TylerN\\Coding\\C#\\Wall\\Views\\Home\\Login.cshtml",
+      "TargetPath": "Views\\Home\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\TylerN\\Coding\\C#\\Wall\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\TylerN\\Coding\\C#\\Wall\\Views\\Home\\UserMessage.cshtml",
+      "TargetPath": "Views\\Home\\UserMessage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\TylerN\\Coding\\C#\\Wall\\Views\\Home\\Edit.cshtml",
+      "TargetPath": "Views\\Home\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\TylerN\\Coding\\C#\\Wall\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
     }
   ],

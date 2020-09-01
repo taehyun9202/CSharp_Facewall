@@ -13,9 +13,24 @@
 </form>
 @foreach (var m in @ViewBag.allMessages){
     <div class="col col-sm-12" style="border: 2px black solid; margin-botton: 10px;">
-        <p><a href="/user/@m.Creator.UserId">@m.Creator.FirstName @m.Creator.LastName</a> commented at @m.CreatedAt</p>
+        <p style="font-weight: bolder;"><a href="/user/@m.Creator.UserId">@m.Creator.FirstName @m.Creator.LastName</a> commented at @m.CreatedAt</p>
         <p>@m.Content</p>
-        <a href="" class="">Reply</a>
-        @* <partial name="Comment.cshtml"></partial> AJAX *@
+        <div>
+            <form asp-action="Reply" method="post">
+                <div class="form-group col-sm-12">
+                    <input asp-for="Content" class="form-control" placeholder="What's on your mind, @ViewBag.getUser.FirstName?">
+                    <input type="hidden" asp-for="ToId" class="form-control" value="@m.MessageId">
+                </div>
+            </form>
+        </div>
+        <div>
+            @foreach (var c in @ViewBag.allComments)
+            {
+                @if(c.MessageId == m.MessageId){
+                    <small style="font-weight: bolder;"><a href="/user/@m.Creator.UserId">@c.Creator.FirstName</a> Replied at @c.CreatedAt</small>
+                    <p>@c.Content</p>
+                }
+            }
+        </div>
     </div>
 }
